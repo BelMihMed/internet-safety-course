@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Безопасный интернет</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Мини-курс для подростков</p>
+        <h1>
+          <span class="brand-black">Без</span><span class="brand-red">опасный</span>
+          <span class="brand-black">интернет</span>
+        </h1>
+        <p class="hero-text">
+          Тест из 10 вопросов, персональный результат и шесть обучающих
+          слайдов: вводная часть и пять последовательных уроков.
+        </p>
+      </header>
+
+      <main id="app" class="app" aria-live="polite">
+        <section class="card">
+          <div class="stepper" aria-label="Этапы курса">
+            <span class="step-chip is-current">Старт</span>
+            <span class="step-chip">Тест</span>
+            <span class="step-chip">Результат</span>
+            <span class="step-chip">Вступление</span>
+            <span class="step-chip">Уроки</span>
+            <span class="step-chip">Финал</span>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <span class="section-tag">Тест</span>
+              <h2>Насколько безопасно ты ведешь себя в интернете?</h2>
+              <p>
+                Прочитай каждую ситуацию и выбери один вариант ответа. За каждый
+                правильный ответ начисляется 1 балл. Максимум - 10 баллов.
+              </p>
+              <div class="hero-badges">
+                <span>10 ситуаций из жизни</span>
+                <span>1 балл за верный ответ</span>
+                <span>Подходит подросткам</span>
+              </div>
+              <button class="primary-button" type="button">Начать тест</button>
+            </div>
+            <aside class="promo-card">
+              <p class="promo-label">Что внутри</p>
+              <div class="promo-number">10</div>
+              <p class="promo-title">вопросов с одним правильным вариантом</p>
+              <div class="promo-grid">
+                <div>
+                  <strong>4</strong>
+                  <span>итоговых результата</span>
+                </div>
+                <div>
+                  <strong>6</strong>
+                  <span>слайдов мини-курса</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <section class="subsection">
+            <div class="subsection-head">
+              <h3>Как будет устроен сайт</h3>
+              <p>
+                После теста пользователь увидит персональный результат, а затем
+                пройдет мини-курс по шагам.
+              </p>
+            </div>
+            <div class="lesson-map">
+              <div class="lesson-map-card">
+                <span>Вступление</span>
+                <strong>Вступление</strong>
+              </div>
+              <div class="lesson-map-card">
+                <span>Урок 1</span>
+                <strong>Почему обычное сообщение может быть ловушкой</strong>
+              </div>
+              <div class="lesson-map-card">
+                <span>Урок 2</span>
+                <strong>Ссылки, сайты и онлайн-покупки</strong>
+              </div>
+              <div class="lesson-map-card">
+                <span>Урок 3</span>
+                <strong>Аккаунты, пароли и личные данные</strong>
+              </div>
+              <div class="lesson-map-card">
+                <span>Урок 4</span>
+                <strong>Файлы, игры и бесплатные бонусы</strong>
+              </div>
+              <div class="lesson-map-card">
+                <span>Урок 5</span>
+                <strong>Нейросети, дипфейки и травля в сети</strong>
+              </div>
+            </div>
+          </section>
+          <button class="primary-button" type="button">Начать тест</button>
+        </section>
+      </main>
+    </div>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+  </html>
