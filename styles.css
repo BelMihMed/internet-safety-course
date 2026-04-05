@@ -280,6 +280,12 @@ body {
   margin-top: 22px;
 }
 
+.hero-actions {
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .summary-box {
   flex-wrap: wrap;
   margin: 18px 0 14px;
@@ -569,6 +575,64 @@ body {
   font-size: 1.05rem;
 }
 
+.lesson-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lesson-text > p {
+  margin: 0;
+}
+
+.lesson-section {
+  border-radius: 24px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
+}
+
+.lesson-section h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  line-height: 1.15;
+}
+
+.lesson-section p {
+  margin: 0;
+}
+
+.lesson-section--case {
+  background:
+    radial-gradient(circle at top left, rgba(95, 143, 255, 0.18), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(236, 244, 255, 0.68));
+}
+
+.lesson-section--practice {
+  background:
+    radial-gradient(circle at top left, rgba(123, 240, 75, 0.2), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(241, 251, 233, 0.68));
+}
+
+.lesson-section--takeaway {
+  background:
+    radial-gradient(circle at top left, rgba(255, 166, 42, 0.2), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 244, 225, 0.68));
+}
+
+.lesson-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.lesson-list li + li {
+  margin-top: 8px;
+}
+
 .question-title,
 .lesson-title {
   max-width: none;
@@ -778,6 +842,11 @@ body {
   .rules-block h3 {
     margin-bottom: 12px;
     font-size: 1.14rem;
+  }
+
+  .lesson-section {
+    padding: 16px;
+    border-radius: 20px;
   }
 
   .promo-grid {

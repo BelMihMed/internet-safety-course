@@ -58,7 +58,10 @@ function renderStart() {
             <span>1 балл за верный ответ</span>
             <span>Подходит подросткам</span>
           </div>
-          <button class="primary-button" id="start-quiz">Начать тест</button>
+          <div class="actions hero-actions">
+            <button class="primary-button action-primary" id="start-quiz">Начать тест</button>
+            <button class="secondary-button action-secondary" id="watch-course">Смотреть курс</button>
+          </div>
         </div>
         <aside class="promo-card">
           <p class="promo-label">Что внутри</p>
@@ -82,6 +85,13 @@ function renderStart() {
   document
     .querySelector("#start-quiz")
     .addEventListener("click", () => renderQuestion(0));
+
+  document
+    .querySelector("#watch-course")
+    .addEventListener("click", () => {
+      state.lessonIndex = -1;
+      renderLesson();
+    });
 }
 
 function renderQuestion(index) {
@@ -124,8 +134,8 @@ function renderQuestion(index) {
       </form>
       <div class="actions">
         <button class="secondary-button action-secondary" id="prev-question" ${
-          index === 0 ? "disabled" : ""
-        }>Назад</button>
+          index === 0 ? "" : ""
+        }>${index === 0 ? "Выйти" : "Назад"}</button>
         <button class="primary-button action-primary" id="next-question">${
           index === window.courseData.quiz.questions.length - 1
             ? "Посмотреть результат"
@@ -140,6 +150,11 @@ function renderQuestion(index) {
   const prevButton = document.querySelector("#prev-question");
 
   prevButton.addEventListener("click", () => {
+    if (index === 0) {
+      renderStart();
+      return;
+    }
+
     if (index > 0) {
       saveAnswer(form, index);
       renderQuestion(index - 1);
@@ -251,7 +266,13 @@ function getCurrentLessonData() {
       title: window.courseData.lessons.intro.title,
       subtitle: "Вводная часть курса",
       content: window.courseData.lessons.intro.content,
-      image: window.courseData.lessons.intro.image
+      image: window.courseData.lessons.intro.image,
+      caseTitle: null,
+      caseText: null,
+      practiceTitle: null,
+      practiceItems: [],
+      takeawayTitle: null,
+      takeawayText: null
     };
   }
 
@@ -261,7 +282,13 @@ function getCurrentLessonData() {
     title: `${lesson.step}. ${lesson.title}`,
     subtitle: lesson.subtitle,
     content: lesson.content,
-    image: lesson.image || null
+    image: lesson.image || null,
+    caseTitle: lesson.caseTitle || null,
+    caseText: lesson.caseText || null,
+    practiceTitle: lesson.practiceTitle || null,
+    practiceItems: lesson.practiceItems || [],
+    takeawayTitle: lesson.takeawayTitle || null,
+    takeawayText: lesson.takeawayText || null
   };
 }
 
@@ -287,6 +314,32 @@ function renderLesson() {
         }
         <div class="lesson-text">
           ${lessonData.content.map((item) => `<p>${item}</p>`).join("")}
+          ${
+            lessonData.caseText
+              ? `<section class="lesson-section lesson-section--case">
+            <h3>${lessonData.caseTitle}</h3>
+            <p>${lessonData.caseText}</p>
+          </section>`
+              : ""
+          }
+          ${
+            lessonData.practiceItems.length
+              ? `<section class="lesson-section lesson-section--practice">
+            <h3>${lessonData.practiceTitle}</h3>
+            <ul class="lesson-list">
+              ${lessonData.practiceItems.map((item) => `<li>${item}</li>`).join("")}
+            </ul>
+          </section>`
+              : ""
+          }
+          ${
+            lessonData.takeawayText
+              ? `<section class="lesson-section lesson-section--takeaway">
+            <h3>${lessonData.takeawayTitle}</h3>
+            <p>${lessonData.takeawayText}</p>
+          </section>`
+              : ""
+          }
         </div>
       </div>
       <div class="actions">
